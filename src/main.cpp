@@ -10,9 +10,9 @@
 #define ENC4_PIN 33
 
 // Кнопки
-#define BUTTON_PIN 21 // старт запись
+#define BUTTON_PIN 18 // старт запись
 #define BUTTON_PIN2 15 // старт воспроизведение
-#define BUTTON_PIN3 22 // старт трансляции
+#define BUTTON_PIN3 19 // старт трансляции
 #define BUTTON_PIN4 23 // сброс фингер
 
 #define BUTTON_PIN5 34 // торс вправо
@@ -93,13 +93,17 @@ void loop() {
 
 
   // Вывод данных
-  Serial.print("Enc1: "); Serial.print(myData.Serv1);
-  Serial.print(" Enc2: "); Serial.print(myData.Serv2);
-  Serial.print(" Enc3: "); Serial.print(myData.Serv3);
-  Serial.print(" Enc4: "); Serial.println(myData.Serv4);
+  Serial.print("  "); Serial.print(myData.Serv1);
+  Serial.print("  "); Serial.print(myData.Serv2);
+  Serial.print("  "); Serial.print(myData.Serv3);
+  Serial.print("  "); Serial.print(myData.Serv4);
+    Serial.print("  "); Serial.print(myData.Butt1);
+      Serial.print("  "); Serial.print(myData.Butt2);
+        Serial.print("  "); Serial.print(myData.Butt3);
+        Serial.print("  "); Serial.println(myData.buttRightHand);
 
   // Отправка данных через ESP
-   TwoWayESP::SendBytes(&myData, sizeof(ServoAngles));
+  TwoWayESP::SendBytes(&myData, sizeof(ServoAngles));
 
   delay(200);
 }
