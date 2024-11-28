@@ -144,7 +144,7 @@ void loop() {
   myData.Serv4 = map(enc4_value, 0, 4095, 0, 180);
 
   // Проверка кнопок и обновление их состояний
-  if (digitalRead(BUTTON_PIN) == LOW) stateButt1 = !stateButt1;
+  if (digitalRead(BUTTON_PIN) == LOW) {stateButt1 = !stateButt1;stateButt2 =false;}
   if (digitalRead(BUTTON_PIN2) == LOW) {stateButt2 = !stateButt2;stateButt1=false;};
   if (digitalRead(BUTTON_PIN3) == LOW) stateButt3 = !stateButt3;
   if (digitalRead(BUTTON_PIN4) == LOW) stateButt4 = !stateButt4;
